@@ -10,7 +10,7 @@
 <div id="app">
     <button v-on:click="increaseCounter($event, 2)">Click me!</button>
     <p>{{ counter }}</p>
-    <p v-on:mousemove="updateCoordinates">{{ x }} / {{ y }}</p>
+    <p v-on:mousemove="updateCoordinates">{{ x }} / {{ y }} <span v-on:mousemove.stop="">DEAD SPOT</span></p>
 </div>
 
 <script>
