@@ -1,27 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Hello World</title>
-  <script src="https://unpkg.com/vue"></script>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+    <script src="https://unpkg.com/vue@2.0.5/dist/vue.js"></script>
 </head>
 <body>
-  <div id="app">
-	<input type="text" v-on:input="updateMessage">
-    <p>{{ message }}</p>
-  </div>
 
-  <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        message: 'Hello World!'
-      },
-	  methods: {
-		updateMessage: function (event) {
-			this.message = event.target.value;
-		}
-	  }
-    })
-  </script>
+<div id="app">
+    <a v-bind:href="link">Google</a>
+</div>
+
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            link: 'http://www.google.com'
+        }
+    });
+</script>
 </body>
 </html>
