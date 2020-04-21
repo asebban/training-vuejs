@@ -7,30 +7,30 @@
 </head>
 <body>
 
-<div id="app">
-    <button v-on:click="increaseCounter($event, 2)">Click me!</button>
-    <p>{{ counter }}</p>
-    <p v-on:mousemove="updateCoordinates">{{ x }} / {{ y }} <span v-on:mousemove.stop="">DEAD SPOT</span></p>
+<div id="exercise">
+    <!-- 1) Show an alert when the Button gets clicked -->
+    <div>
+        <button>Show Alert</button>
+    </div>
+    <!-- 2) Listen to the "keydown" event and store the value in a data property (hint: event.target.value gives you the value) -->
+    <div>
+        <input type="text">
+        <p>{{ value }}</p>
+    </div>
+    <!-- 3) Adjust the example from 2) to only fire if the "key down" is the ENTER key -->
+    <div>
+        <input type="text">
+        <p>{{ value }}</p>
+    </div>
 </div>
 
 <script>
     new Vue({
-        el: '#app',
+        el: '#exercise',
         data: {
-            counter: 0,
-            x: 0,
-            y: 0
-        },
-        methods: {
-            increaseCounter: function(event, step) {
-                this.counter += step;
-            },
-            updateCoordinates: function(event) {
-                this.x = event.clientX;
-                this.y = event.clientY;
-            }
+            value: ''
         }
-    })
+    });
 </script>
 </body>
 </html>
