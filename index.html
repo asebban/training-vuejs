@@ -7,48 +7,47 @@
     <script src="https://unpkg.com/vue"></script>
 </head>
 
+ <style>
+        .demo {
+            height:  100px;
+            width: 100px;
+            background-color: gray;
+            display: inline-block;
+            margin: 10px;
+        }
+        .red {
+            background-color: red;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
 <body>
 
-    <div id="exercise">
-        <!-- 1) Montrer un "result" de 'pas encore arrivé' tant que "value" n'est pas égale à 37 
-        - vous pouvez changer "value" avec des boutons. Affichez 'done' quand vous le faites -->
-        <div>
-            <p>Current Value: {{ value }}</p>
-            <button @click="value += 5">Add 5</button>
-            <button @click="value += 1">Add 1</button>
-            <p>{{ result }}</p>
-        </div>
-        <!-- 2) Surveillez les changements de "result" et réinitialisez "value" après 5 secondes (hint: setTimeout(..., 5000) -->
-        <div>
-            <p>{{ value }}</p>
-        </div>
-    </div>
+<div id="app">
+    <div class="demo" @click="attachRed = !attachRed" :class="divClasses"></div>
+    <div class="demo"></div>
+    <div class="demo"></div>
+</div>
 
-    <script>
-        new Vue({
-            el: '#exercise',
-            data: {
-                value: 0
-            },
-            computed: {
-                result: function () {
-                    if (this.value < 37)
-                        return 'pas encore arrivé';
-                    else
-                        return 'done';
-                }
-            },
-            watch: {
-                value: function () {
-                    v = this;
-                    setTimeout(function () {
-                        v.value = 0;
-                    }, 5000);
-                }
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            attachRed: false
+        },
+        computed: {
+            divClasses: function() {
+                return {
+                    red: this.attachRed
+                };
             }
-
-        });
-    </script>
+        }
+    });
+</script>
 </body>
-
 </html>
