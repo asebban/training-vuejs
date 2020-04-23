@@ -7,31 +7,26 @@
 </head>
 <body>
 
-<div id="app">
-    <button v-on:click="increase">Increase</button>
-    {{ result }}
+<div id="exercise">
+    <!-- 1) Montrer un "result" de 'pas encore arrivé' tant que "value" n'est pas égale à 37 - vous pouvez changer "value" avec des boutons. Affichez 'done' quand vous le faites -->
+    <div>
+        <p>Current Value: {{ value }}</p>
+        <button @click="value += 5">Add 5</button>
+        <button @click="value += 1">Add 1</button>
+        <p>{{ result }}</p>
+    </div>
+    <!-- 2) Surveillez les changements de "result" et réinitialisez "value" après 5 secondes (hint: setTimeout(..., 5000) -->
+    <div>
+        <input type="text">
+        <p>{{ value }}</p>
+    </div>
 </div>
 
 <script>
     new Vue({
-        el: '#app',
+        el: '#exercise',
         data: {
-            counter: 0,
-            result: 0
-        },
-        watch: {
-            counter: function(value) {
-				if(value==0){
-					 this.result = '0';
-				}else{
-					 this.result = 'increased to ' + value;
-				}
-            }
-        },
-        methods: {
-            increase: function () {
-                this.counter++;
-            }
+            value: 0
         }
     });
 </script>
