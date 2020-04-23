@@ -1,35 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Hello World</title>
+    <title>Exercice</title>
     <script src="https://unpkg.com/vue"></script>
 </head>
+
 <body>
 
-<div id="exercise">
-    <!-- 1) Montrer un "result" de 'pas encore arrivé' tant que "value" n'est pas égale à 37 - vous pouvez changer "value" avec des boutons. Affichez 'done' quand vous le faites -->
-    <div>
-        <p>Current Value: {{ value }}</p>
-        <button @click="value += 5">Add 5</button>
-        <button @click="value += 1">Add 1</button>
-        <p>{{ result }}</p>
+    <div id="exercise">
+        <!-- 1) Montrer un "result" de 'pas encore arrivé' tant que "value" n'est pas égale à 37 
+        - vous pouvez changer "value" avec des boutons. Affichez 'done' quand vous le faites -->
+        <div>
+            <p>Current Value: {{ value }}</p>
+            <button @click="value += 5">Add 5</button>
+            <button @click="value += 1">Add 1</button>
+            <p>{{ result }}</p>
+        </div>
+        <!-- 2) Surveillez les changements de "result" et réinitialisez "value" après 5 secondes (hint: setTimeout(..., 5000) -->
+        <div>
+            <p>{{ value }}</p>
+        </div>
     </div>
-    <!-- 2) Surveillez les changements de "result" et réinitialisez "value" après 5 secondes (hint: setTimeout(..., 5000) -->
-    <div>
-        <input type="text">
-        <p>{{ value }}</p>
-    </div>
-</div>
 
-<script>
-    new Vue({
-        el: '#exercise',
-        data: {
-            value: 0
-        }
-    });
-</script>
+    <script>
+        new Vue({
+            el: '#exercise',
+            data: {
+                value: 0
+            },
+            computed: {
+                result: function () {
+                    if (this.value < 37)
+                        return 'pas encore arrivé';
+                    else
+                        return 'done';
+                }
+            },
+            watch: {
+                value: function () {
+                    v = this;
+                    setTimeout(function () {
+                        v.value = 0;
+                    }, 5000);
+                }
+            }
+
+        });
+    </script>
 </body>
-</html>
 
+</html>
