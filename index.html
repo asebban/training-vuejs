@@ -16,16 +16,17 @@
     new Vue({
         el: '#app',
         data: {
-            counter: 0
+            counter: 0,
+            result: 0
         },
-        computed: {
-            result: function() {
-				if(this.counter==0){
-					return '0';
+        watch: {
+            counter: function(value) {
+				if(value==0){
+					 this.result = '0';
 				}else{
-					return 'increased to ' + this.counter;
+					 this.result = 'increased to ' + value;
 				}
-			}
+            }
         },
         methods: {
             increase: function () {
@@ -36,3 +37,4 @@
 </script>
 </body>
 </html>
+
