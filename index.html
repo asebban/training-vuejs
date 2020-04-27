@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <title>Exercice</title>
     <script src="https://unpkg.com/vue"></script>
-</head>
-
- <style>
+    <style>
         #effect {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        #effect1 {
             width: 100px;
             height: 100px;
             border: 1px solid black;
@@ -23,54 +26,100 @@
             background-color: gray;
             width: 50px !important;
         }
+        .effect1 {
+            background-color: green;
+            width: 50px !important;
+        }
+        .effect2 {
+            height: 200px !important;
+        }
+        .violet {
+            background-color: violet;
+            height: 150px !important;
+        }
+        .blue {
+            background-color: blue;
+            height: 150px !important;
+        }
+      
     </style>
 </head>
+
 <body>
 
-<div id="exercise">
-    <!-- 1) Démarrer l'effet avec le bouton. L'effet devra alterner les classes "highlight" ou "shrink" pour chaque nouveau tick de setInterval (attacher la classe respective au div avec id "effect" ci-dessous) -->
-    <div>
-        <button @click="startEffect">Start Effect</button>
-        <div id="effect"></div>
+    <div id="exercise">
+        <!-- 1) Démarrer l'effet avec le bouton. L'effet devra alterner les classes "highlight" ou "shrink" pour chaque nouveau tick de setInterval (attacher la classe respective au div avec id "effect" ci-dessous) -->
+        <div>
+            <button @click="startEffect">Start Effect</button>
+            <div id="effect" :class='effect'></div>
+        </div>
+        <!-- 2) Créer plusieurs classes CSS et les attacher via la syntaxe des tableaux / listes -->
+        <div :class='[effect1,effect2]'>I got no class :(</div>
+        <!-- 3) permettre à l'utilisateur de saisir un nom de classe (créer des classes exemple) et les attacher -->
+        <div>
+            <input type="text" v-model="styleClass">
+            <div :class='styleClass'></div>
+        </div>
+        <!-- 4) permettre à l'utilisateur de saisir une classe et saisir true/ false pour une autre classe (créer des classes exemples) et les attacher -->
+        <div>
+            <input type="text" v-model="style1">
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{ checked }}</label>
+            <div id="effect1" :class='final'></div>
+        </div>
+        <!-- 5) répéter 3) mais maintenant avec des valeurs pour les styles (au lieu de noms de classes). attacher les styles respectifs.  -->
+        <div>
+            <input type="text">
+            <div></div>
+        </div>
+        <!-- 6) Créer une progress bar simple avec setInterval et attachement de style. Démarrez là en cliquant le bouton ci-dessous -->
+        <div>
+            <button v-on:click="startProgress">Start Progress</button>
+            <div :class='style1' :style="progress"></div>
+        </div>
     </div>
-    <!-- 2) Créer plusieurs classes CSS et les attacher via la syntaxe des tableaux / listes -->
-    <div>I got no class :(</div>
-    <!-- 3) permettre à l'utilisateur de saisir un nom de classe (créer des classes exemple) et les attacher -->
-    <div>
-        <input type="text">
-        <div></div>
-    </div>
-    <!-- 4) permettre à l'utilisateur de saisir une classe et saisir true/ false pour une autre classe (créer des classes exemples) et les attacher -->
-    <div>
-        <input type="text">
-        <input type="text">
-        <div></div>
-    </div>
-    <!-- 5) répéter 3) mais maintenant avec des valeurs pour les styles (au lieu de noms de classes). attacher les styles respectifs.  -->
-    <div>
-        <input type="text">
-        <div></div>
-    </div>
-    <!-- 6) Créer une progress bar simple avec setInterval et attachement de style. Démarrez là en cliquant le bouton ci-dessous -->
-    <div>
-        <button v-on:click="startProgress">Start Progress</button>
-        <div></div>
-    </div>
-</div>
 
 
-<script>
-    new Vue({
-        el: '#exercise',
-        data: {
-
-        },
-        methods: {
-            startEffect: function() {
-
+    <script>
+        new Vue({
+            el: '#exercise',
+            data: {
+                effect: "highlight",
+                effect1: "effect1",
+                effect2: "effect2",
+                styleClass: "blue",
+                style1: "blue",
+                checked: true,
+                progress: "",
+                width: 10
+            },
+            methods: {
+                startEffect: function () {
+                    v = this;
+                    setInterval(function () {
+                        if (v.effect == 'highlight')
+                            v.effect = 'shrink';
+                        else
+                            v.effect = 'highlight';
+                    }, 1000);
+                }, startProgress: function () {
+                    v = this;
+                    setInterval(function () {
+                        v.width=v.width+10;
+                        v.progress="width: "+v.width+"px";
+                    }, 1000);
+                   
+                 }
+            }, computed: {
+                final: function () {
+                    if (!this.checked)
+                        return "";
+                    else
+                        return this.style1;
+                }
             }
-        }
-    });
-</script>
+        });
+    </script>
 </body>
+
 </html>
