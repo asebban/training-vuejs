@@ -8,47 +8,66 @@
 </head>
 
  <style>
-        .demo {
-            height:  100px;
+        #effect {
             width: 100px;
-            background-color: gray;
-            display: inline-block;
-            margin: 10px;
+            height: 100px;
+            border: 1px solid black;
         }
-        .red {
+
+        .highlight {
             background-color: red;
+            width: 200px !important;
         }
-        .blue {
-            background-color: blue;
-        }
-        .green {
-            background-color: green;
+
+        .shrink {
+            background-color: gray;
+            width: 50px !important;
         }
     </style>
 </head>
 <body>
 
-<div id="app">
-    <div class="demo" :style="[myStyle, { height: width + 'px' }]"></div>
-    <div class="demo"></div>
-    <div class="demo"></div>
-    <input type="text" v-model="color">
-    <input type="text" v-model="width">
+<div id="exercise">
+    <!-- 1) Démarrer l'effet avec le bouton. L'effet devra alterner les classes "highlight" ou "shrink" pour chaque nouveau tick de setInterval (attacher la classe respective au div avec id "effect" ci-dessous) -->
+    <div>
+        <button @click="startEffect">Start Effect</button>
+        <div id="effect"></div>
+    </div>
+    <!-- 2) Créer plusieurs classes CSS et les attacher via la syntaxe des tableaux / listes -->
+    <div>I got no class :(</div>
+    <!-- 3) permettre à l'utilisateur de saisir un nom de classe (créer des classes exemple) et les attacher -->
+    <div>
+        <input type="text">
+        <div></div>
+    </div>
+    <!-- 4) permettre à l'utilisateur de saisir une classe et saisir true/ false pour une autre classe (créer des classes exemples) et les attacher -->
+    <div>
+        <input type="text">
+        <input type="text">
+        <div></div>
+    </div>
+    <!-- 5) répéter 3) mais maintenant avec des valeurs pour les styles (au lieu de noms de classes). attacher les styles respectifs.  -->
+    <div>
+        <input type="text">
+        <div></div>
+    </div>
+    <!-- 6) Créer une progress bar simple avec setInterval et attachement de style. Démarrez là en cliquant le bouton ci-dessous -->
+    <div>
+        <button v-on:click="startProgress">Start Progress</button>
+        <div></div>
+    </div>
 </div>
+
 
 <script>
     new Vue({
-        el: '#app',
+        el: '#exercise',
         data: {
-            color: 'green',
-            width: 100
+
         },
-        computed: {
-            myStyle: function() {
-                return {
-                    backgroundColor: this.color,
-                    width: this.width + 'px'
-                }
+        methods: {
+            startEffect: function() {
+
             }
         }
     });
