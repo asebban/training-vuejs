@@ -24,50 +24,58 @@
     </style>
 </head>
 
-<<div id="exercise">
-    <!-- 1) Associer le bouton pour afficher un des deux paragraphes. Utiliser v-if et v-show et inspecter les éléments pour voir la différence -->
-    <div>
-        <button>Toggle</button>
-        <p>You either see me ...</p>
-        <p>...or me</p>
-        <p>You either see me ...</p>
-        <p>...or me</p>
+<body>
+
+    <div id="exercise">
+        <!-- 1) Associer le bouton pour afficher un des deux paragraphes. Utiliser v-if et v-show et inspecter les éléments pour voir la différence -->
+        <div>
+            <button @click="show = !show">Switch</button>
+            <p v-if="show">You either see me ...</p>
+            <p v-else>...or me</p>
+        </div>
+        <!-- 2) Afficher un <ul> d'éléments d'un tableau de votre choix. Imprimer l'indexe de chaque élément. -->
+        <ul>
+            <li v-for="(array, i) in array">{{ array }} ({{ i }})</li>
+        </ul>
+        <!-- 3) Afficher toutes les pairs key-value de l'objet suivant : {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'}. Imprimer l'index de chaque item. -->
+        <span v-for="(value, key) in myObject">{{ key }} : {{ value }},</span>
+        <!-- 4) Afficher l'objet suivant (uniquement les valeurs) et aussi créer une boucle pour afficher le tableau : {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21]} (hint: Utiliser v-for et v-if pour faire ça) -->
+        <ul>
+            <li>
+                <span v-if="value!=10" v-for="(value, key) in testData">{{ value }},</span>
+            </li>
+        </ul>
+        <ul>
+            <li>
+
+               <span v-for="n in testData.data">{{ n }}<br></span>
+            </li>
+        </ul>
+
+        
     </div>
-    <!-- 2) Afficher un <ul> d'éléments d'un tableau de votre choix. Imprimer l'indexe de chaque élément. -->
-    <ul>
-        <li></li>
-    </ul>
-    <!-- 3) Afficher toutes les pairs key-value de l'objet suivant : {title: 'Lord of the Rings', author: 'J.R.R. Tolkiens', books: '3'}. Imprimer l'index de chaque item. -->
-    <ul>
-        <li></li>
-    </ul>
-    <!-- 4) Afficher l'objet suivant (uniquement les valeurs) et aussi créer une boucle pour le tableau : {name: 'TESTOBJECT', data: [1.67, 1.33, 0.98, 2.21]} (hint: Utiliser v-for et v-if pour faire ça) -->
-    <ul>
-        <li>
-
-        </li>
-    </ul>
-</div>
 
 
 
-<script>
-    new Vue({
-        el: '#exercise',
-        data: {
-            array: ['Max', 'Anna', 'Chris', 'Manu'],
-            myObject: {
-                title: 'Lord of the Rings',
-                author: 'J.R.R. Tolkiens',
-                books: '3'
-            },
-            testData: {
-                name: 'TESTOBJECT',
-                id: 10,
-                data: [1.67, 1.33, 0.98, 2.21]
+    <script>
+        new Vue({
+            el: '#exercise',
+            data: {
+                show: true,
+                array: ['Max', 'Anna', 'Chris', 'Manu'],
+                myObject: {
+                    title: 'Lord of the Rings',
+                    author: 'J.R.R. Tolkiens',
+                    books: '3'
+                },
+                testData: {
+                    name: 'TESTOBJECT',
+                    id: 10,
+                    data: [1.67, 1.33, 0.98, 2.21]
+                }
             }
-        }
-    });
-</script>
+        });
+    </script>
 </body>
+
 </html>
