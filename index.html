@@ -26,8 +26,7 @@
 
 <div id="app">
     <template v-for="personne in personnes">
-        <h1>{{ personne.nom }}</h1>
-        <p>{{ personne.age }}</p>
+        <span v-for="(value, key) in personne">{{ key }} : {{ value }},</span>
     </template>
 </div>
 
