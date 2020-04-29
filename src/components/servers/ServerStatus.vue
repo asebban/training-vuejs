@@ -1,8 +1,8 @@
 <template>
-    <div>
-     <p>Server status: {{ status }}</p>
-     <button @click="changeStatus">Change status</button>
-    </div>
+  <div>
+    <p>Server status: {{ status }}</p>
+    <button @click="changeStatus">Change status</button>
+  </div>
 </template>
 
 <script>
