@@ -29,7 +29,7 @@
 
     <p v-if="show">1er: Pouvez vous me voir ?</p>
     <p v-else>Maintenant vous me voyez</p>
-    <p>2ème: pouvez vous me voir</p>
+    <p v-show="show">2ème: pouvez vous me voir</p>
     <button @click="show = !show">Switch</button>
 </div>
 
