@@ -26,11 +26,9 @@
 <body>
 
 <div id="app">
-
-    <p v-if="show">1er: Pouvez vous me voir ?</p>
-    <p v-else>Maintenant vous me voyez</p>
-    <p v-show="show">2ème: pouvez vous me voir</p>
-    <button @click="show = !show">Switch</button>
+    <ul>
+        <li v-for="i in ingredients">{{ i }}</li>
+    </ul>
 </div>
 
 
@@ -38,7 +36,9 @@
     new Vue({
         el: '#app',
         data: {
-            show: true
+            ingredients: [ 'viande', 'ail', 'tomates', 'pommes de terre'],
+            personnes: [{ nom: 'Ahmed', age: 30, couleur: 'noir'},
+                        { nom: 'Aicha', age: 20, couleur: 'blanc'}]
         }
     });
 </script>
