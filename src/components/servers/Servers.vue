@@ -1,9 +1,9 @@
-<t<template>
+<template>
   <div class="col-xs-12 col-sm-6">
     <ul class="list-group">
       <li
         class="list-group-item"
-        v-for="index in 5">
+        v-for="index in 5" v-bind:key="index">
         Server #{{ index }}
       </li>
     </ul>
@@ -13,6 +13,9 @@
 <script>
 </script>
 
-<style>
-
+<style scoped>
+  div {
+    border: 1px solid red;
+  }
 </style>
+
