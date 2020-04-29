@@ -23,11 +23,10 @@
         }
     </style>
 </head>
-<body>
 
 <div id="app">
     <ul>
-        <li v-for="i in ingredients">{{ i }}</li>
+        <li v-for="(ingredient, i) in ingredients">{{ ingredient }} ({{ i }})</li>
     </ul>
 </div>
 
