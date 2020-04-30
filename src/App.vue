@@ -1,47 +1,43 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
-        <br>
-        <button class="btn btn-primary" @click="selectedComponent = 'appBlue'">Load Blue Template</button>
-        <button class="btn btn-success" @click="selectedComponent = 'appGreen'">Load Green Template</button>
-        <button class="btn btn-danger" @click="selectedComponent = 'appRed'">Load Red Template</button>
-        <hr>
-        <component :is="selectedComponent">
-          <p>This is the Content</p>
-        </component>
-        <!--<app-blue>-->
-        <!--<p>This is the Content</p>-->
-        <!--</app-blue>-->
-        <!--<app-green>-->
-        <!--<p>This is the Content</p>-->
-        <!--</app-green>-->
-        <!--<app-red>-->
-        <!--<p>This is the Content</p>-->
-        <!--</app-red>-->
+      <div class="col-md-4">
+      <input type="text" class="form-control" v-model.number="user.name">
+        <textarea name="description" id="description" cols="30" rows="10" v-model="user.description"></textarea>
       </div>
+      <div class="col-md-offset-8"></div>
     </div>
+    <div class="form-group">
+      <label for="sendmail">
+        <input type="checkbox" id="sendmail" class="form-control" value="SendMail" v-model="user.sendMail">Send Mail
+      </label>
+      <label for="sendInfoMail">
+        <input type="checkbox" value="SendInfoMail" class="form-control" id="sendInfoMail" v-model="user.sendMail">Send info mail
+      </label>
+    </div>
+    <p>{{ user.name }}</p>
+    <p style="white-space: pre">{{ user.description }}</p>
+    <p>Send Mail: {{ user.sendMail }}</p>
   </div>
 </template>
 
 <script>
-  import Blue from './components/Blue.vue';
-  import Green from './components/Green.vue';
-  import Red from './components/Red.vue';
-
   export default {
-    data: function() {
+    data() {
       return {
-        selectedComponent: 'appBlue'
+        user: {
+          name: 'Ahmed',
+          age: 30,
+          description: 'Some description',
+          sendMail: []
+        }
       }
-    },
-    components: {
-      appBlue: Blue,
-      appGreen: Green,
-      appRed: Red
     }
   }
 </script>
 
-<style>
+<style scoped>
+  p {
+    border: solid 1px;
+  }
 </style>
