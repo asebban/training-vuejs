@@ -2,7 +2,7 @@
     <div class="component">
         <h3>You may view the User Details here</h3>
         <p>Many Details. My name is {{ name }}</p>
-        <button @click="name = 'Ahmed'">Reset Name</button>
+        <button @click="resetName">Reset Name</button>
     </div>
 </template>
 
@@ -13,9 +13,16 @@
         type: String,
         required: true
       }
+    },
+    methods: {
+      resetName() {
+        this.name = 'Ahmed';
+        this.$emit('nameWasReset', this.name);
+      }
     }
   }
 </script>
+
 
 
 <style scoped>
