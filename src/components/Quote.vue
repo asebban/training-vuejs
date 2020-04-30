@@ -1,6 +1,12 @@
 <template>
   <div>
-    <h1>A wonderful quote!</h1>
+    <span class="title">
+      <slot name="title"></slot>
+    </span>
+    <hr>
+    <span class="content">
+      <slot name="content"></slot>
+    </span>
   </div>
 </template>
 
@@ -17,6 +23,13 @@
     padding: 30px;
     margin: 30px auto;
     text-align: center;
-    width: 400px;
+  }
+
+  .title {
+    color: red;
+  }
+
+  .content {
+    color: blue;
   }
 </style>

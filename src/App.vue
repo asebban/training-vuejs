@@ -1,6 +1,9 @@
 <template>
 <div>
-  <app-quote></app-quote>
+  <app-quote>
+    <h2 slot="title">My title</h2>
+    <p slot="content">My content</p>
+  </app-quote>
 </div>
 </template>
 
