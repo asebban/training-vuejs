@@ -1,36 +1,33 @@
 <template>
-<div>
-  <component :is="selectedComponent">
-    <h2 slot="title">My title</h2>
-    <p slot="content">My content</p>
-  </component>
-  <hr>
-  <button @click="selectedComponent = 'app-quote'">Select Quote</button>
-  <button @click="selectedComponent = 'app-author'">Select Author</button>
-  <button @click="selectedComponent = 'app-new'">Select New</button>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <br>
+        <button class="btn btn-primary">Load Blue Template</button>
+        <button class="btn btn-success">Load Green Template</button>
+        <button class="btn btn-danger">Load Red Template</button>
+        <hr>
+        <app-blue></app-blue>
+        <app-green></app-green>
+        <app-red></app-red>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-
-  import Quote from './components/Quote';
-  import Author from './components/Author';
-  import New from './components/New';
+  import Blue from './components/Blue.vue';
+  import Green from './components/Green.vue';
+  import Red from './components/Red.vue';
 
   export default {
-    data() {
-      return {
-        selectedComponent: 'app-quote'
-      }
-    },
     components: {
-      'app-quote': Quote,
-      'app-author': Author,
-      'app-new': New
+      appBlue: Blue,
+      appGreen: Green,
+      appRed: Red
     }
   }
 </script>
 
 <style>
-
 </style>
