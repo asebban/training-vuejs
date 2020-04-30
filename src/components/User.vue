@@ -9,7 +9,7 @@
                 <app-user-detail :name="name" @nameWasReset="resetName"></app-user-detail>
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit></app-user-edit>
+                <app-user-edit :name="name"></app-user-edit>
             </div>
         </div>
     </div>
@@ -18,6 +18,8 @@
 <script>
     import UserDetail from './UserDetail.vue';
     import UserEdit from './UserEdit.vue';
+
+    import { eventBus } from "../main";
 
     export default {
         data: function() {
@@ -36,10 +38,14 @@
         components: {
             appUserDetail: UserDetail,
             appUserEdit: UserEdit
+        },
+        created() {
+          eventBus.$on('nameWasEdited', (name) => {
+            this.name = name;
+          });
         }
     }
 </script>
-
 
 <style scoped>
     div {

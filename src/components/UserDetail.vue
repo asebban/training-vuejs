@@ -7,6 +7,8 @@
 </template>
 
 <script>
+  import { eventBus } from '../main';
+
   export default {
     props: {
       name: {
@@ -17,12 +19,16 @@
     methods: {
       resetName() {
         this.name = 'Ahmed';
-        this.$emit('nameWasReset', this.name);
+        eventBus.$emit('nameWasEdited', this.name);
       }
+    },
+    created() {
+      eventBus.$on('nameWasEdited', (name) => {
+        this.name = name;
+      });
     }
   }
 </script>
-
 
 
 <style scoped>
