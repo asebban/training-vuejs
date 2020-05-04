@@ -4,7 +4,7 @@ import VueResource from 'vue-resource';
 
 Vue.use(VueResource);
 
-Vue.http.options.root = 'http://localhost:3000/employees';
+Vue.http.options.root = 'http://localhost:3000/';
 Vue.http.interceptors.push((request, next) => {
   console.log(request.method);
   next(response => {

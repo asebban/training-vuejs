@@ -30,32 +30,46 @@
           username: '',
           email: ''
         },
-        employees: []
+        employees: [],
+        userResource: []
       }
     },
     methods: {
       submit() {
-        this.$http.post('', this.user)
+        this.employeeResource.save({}, this.user)
           .then(response => {
             console.log(response);
-            this.user.username='';
-            this.user.email='';
-            this.fetch();
+          }, error => {
+            console.log(error);
+          });
+      },
+      submitAlt() {
+        this.userResource.saveAlt(this.user)
+          .then(response => {
+            console.log(response);
           }, error => {
             console.log(error);
           });
       },
       fetch() {
-        this.$http.get('')
+        this.employeeResource.get()
           .then(response => {
             this.employees = response.body;
           }, error => {
             console.log(error);
           });
       }
+    },
+    created() {
+      const customActions = {
+        saveAlt: {method: 'POST', url: 'users'}
+      }
+      this.userResource = this.$resource('users', {}, customActions);
+      this.employeeResource = this.$resource('employees', {});
     }
   }
 </script>
+
 
 <style>
 </style>
