@@ -35,7 +35,7 @@
     },
     methods: {
       submit() {
-        this.$http.post('http://localhost:3000/employees', this.user)
+        this.$http.post('', this.user)
           .then(response => {
             console.log(response);
             this.user.username='';
@@ -46,7 +46,7 @@
           });
       },
       fetch() {
-        this.$http.get('http://localhost:3000/employees')
+        this.$http.get('')
           .then(response => {
             this.employees = response.body;
           }, error => {
