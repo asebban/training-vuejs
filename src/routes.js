@@ -6,6 +6,11 @@ import Home from './components/Home'
 import Header from './components/Header'
 
 export const routes = [
+  { path: '', components: {
+      default: Home,
+      'header-top': Header
+    }
+  },
   { path: '/user',
     components: {
       default: User,
@@ -13,11 +18,8 @@ export const routes = [
     },
     children: [
       { path: '', component: UserStart},
-      { path: '/:id', component: UserDetail},
-      { path: '/:id/edit', component: UserEdit, name: 'userEdit'}
+      { path: ':id', component: UserDetail},
+      { path: ':id/edit', component: UserEdit, name: 'userEdit'}
     ]},
-  { path: '/', components: {
-      default: Home,
-      'header-top': Header
-    } }
+  { path: '*', redirect: '/'}
 ];
