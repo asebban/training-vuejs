@@ -9,17 +9,10 @@
 </template>
 
 <script>
+  import { mixin } from './mixin';
+
   export default {
-    data() {
-      return {
-        text: 'Hello There!'
-      }
-    },
-    filters: {
-      toUpperCase(value) {
-        return value.toUpperCase();
-      }
-    }
+    mixins: [ mixin ]
   }
 </script>
 
