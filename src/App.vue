@@ -1,17 +1,12 @@
 <template>
   <div class="container">
-    <p v-highlight>Texte</p>
+    <p v-highlight="'red'">Texte</p>
   </div>
 </template>
 
 <script>
 
   export default {
-    data() {
-      return {
-        dataSwitch: true
-      }
-    }
   }
 </script>
 
