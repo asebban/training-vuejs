@@ -2,6 +2,7 @@
     <div class="container">
       <app-counter></app-counter>
       <app-another-counter></app-another-counter>
+      <app-yet-another-counter></app-yet-another-counter>
       <app-result></app-result>
       <app-another-result></app-another-result>
     </div>
@@ -12,12 +13,14 @@
   import Result from './components/Result';
   import AnotherResult from './components/AnotherResult';
   import AnotherCounter from './components/AnotherCounter';
+  import YetAnotherCounter from './components/YetAnotherCounter';
 
   export default {
 
     components: {
       appCounter: Counter,
       appAnotherCounter: AnotherCounter,
+      appYetAnotherCounter: YetAnotherCounter,
       appResult: Result,
       appAnotherResult: AnotherResult
     }
