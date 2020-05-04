@@ -5,7 +5,7 @@ import UserStart from './components/user/UserStart'
 import Home from './components/Home'
 
 export const routes = [
-  { path: '/user', component: User},
+  { path: '/user/:id', component: User},
   { path: '/userDetail', component: UserDetail},
   { path: '/userEdit', component: UserEdit},
   { path: '/userStart', component: UserStart},
