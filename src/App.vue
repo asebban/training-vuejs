@@ -1,38 +1,27 @@
 <template>
-  <div class="container">
-    <p v-highlight.delayed="'red'">Texte</p>
+  <div>
+    <input type="text" v-model="text">
+    <p>{{ text }}</p>
+    <p>{{ text | toUpperCase }} (ToUpperCase)</p>
+    <p>{{ text | toLowerCase }} (ToLowerCase)</p>
+    <p>{{ text | toUpperCase | toLowerCase }} (ToUpperCase | ToLowerCase)</p>
   </div>
 </template>
 
 <script>
-
   export default {
     data() {
       return {
-        dataSwitch: true
+        text: 'Hello There!'
       }
     },
-    directives: {
-      'highlight': {
-        bind(el, binding){
-
-          var delay = 0;
-
-          if (binding.modifiers['delayed']) {
-            delay = 3000;
-          }
-
-          setTimeout(() => {
-            if (binding.arg == 'background')
-              el.style.backgroundColor = binding.value;
-            else
-              el.style.color = binding.value;
-          },delay);
-        }
+    filters: {
+      toUpperCase(value) {
+        return value.toUpperCase();
       }
     }
   }
 </script>
 
-<style scoped>
+<style>
 </style>
