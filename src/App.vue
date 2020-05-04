@@ -30,6 +30,8 @@
     methods: {
       submit() {
         this.$http.post('http://localhost:3000/employees', this.user);
+        this.user.username='';
+        this.user.email='';
       }
     }
   }
