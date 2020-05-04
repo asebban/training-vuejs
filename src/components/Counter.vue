@@ -1,7 +1,7 @@
 <template>
   <div class="row">
-    <button class="btn btn-primary" @click="updateCounter(2)">Increment</button>
-    <button class="btn btn-primary" @click="updateCounter(-2)">Decrement</button>
+    <button class="btn btn-primary" @click="updateCounter(1)">Increment</button>
+    <button class="btn btn-primary" @click="updateCounter(-1)">Decrement</button>
   </div>
 
 </template>

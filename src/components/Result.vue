@@ -1,6 +1,6 @@
 <template>
   <div>
-    Counter is {{ getCounter }}
+    hi {{ getName }}, Counter is {{ getCounter }}
   </div>
 </template>
 
@@ -8,7 +8,7 @@
   import { mapGetters } from 'vuex';
 
     export default {
-      computed: mapGetters( [ 'getCounter', 'getMultipliedCounter' ] )
+      computed: mapGetters( [ 'getCounter', 'getMultipliedCounter', 'getName' ] )
     }
 </script>
 
