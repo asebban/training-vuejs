@@ -1,21 +1,16 @@
 <template>
   <div class="container">
-    <app-switch v-model="dataSwitch"></app-switch>
-    Switched: {{ dataSwitch }}
+    <p v-highlight>Texte</p>
   </div>
 </template>
 
 <script>
-  import Switch from './components/Switch';
 
   export default {
     data() {
       return {
         dataSwitch: true
       }
-    },
-    components: {
-      'app-switch' : Switch
     }
   }
 </script>
