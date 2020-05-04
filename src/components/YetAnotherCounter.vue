@@ -11,7 +11,7 @@
       methods: {
         ...mapActions(['increment']),
         myIncrement() {
-          this.$store.dispatch('increment')
+          this.$store.dispatch('increment', 5)
         }
       }
     }

@@ -16,13 +16,16 @@ export const store = new Vuex.Store({
     increment: state => {
       state.counter++;
     },
+    incrementBy: (state, by) => {
+      state.counter += by;
+    },
     decrement: state => {
       state.counter--;
     }
   },
   actions: {
-    increment: ({ commit }) => {
-      commit('increment');
+    increment: ({ commit }, by) => {
+      commit('incrementBy', by);
     }
   }
 });
