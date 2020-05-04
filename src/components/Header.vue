@@ -1,10 +1,7 @@
 <template>
   <ul class="nav nav-pills">
     <li class="nav-item">
-      <router-link to="/user/10">User 10</router-link>
-    </li>
-    <li class="nav-item">
-      <router-link to="/user/11">User 11</router-link>
+      <router-link to="/user">User</router-link>
     </li>
     <li class="nav-item">
       <router-link to="/">Home</router-link>
@@ -14,7 +11,6 @@
 
 <script>
     export default {
-        name: "Header"
     }
 </script>
 
