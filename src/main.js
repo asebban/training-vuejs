@@ -9,12 +9,6 @@ const router = new VueRouter({
   routes
 });
 
-router.beforeEach((to, from, next) => {
-  console.log('navigating from ' + from.path + ' to ' + to.path);
-  next();
-});
-
-
 new Vue({
   render: h => h(App),
   router,

@@ -7,5 +7,9 @@
 
 <script>
   export default {
+    beforeRouteEnter: (to, from, next) => {
+      console.log('dans le composant UserDetail, beforeRouteEnter');
+      next();
+    }
   }
 </script>
