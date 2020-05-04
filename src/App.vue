@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <p v-highlight="'red'">Texte</p>
+    <p v-highlight.delayed="'red'">Texte</p>
   </div>
 </template>
 
