@@ -11,13 +11,21 @@
           <label >Mail</label>
           <input type="text" class="form-control" v-model="user.email">
         </div>
+        <div class="form-group">
+          <label>Type</label>
+          <select name="type" id="type" v-model="type">
+            <option value="employees">Employees</option>
+            <option value="users">Users</option>
+          </select>
+        </div>
         <button class="btn btn-primary" @click="submit">Submit</button>
+        <button class="btn btn-primary" @click="submitAlt">Submit Alternative</button>
         <button class="btn btn-primary" @click="fetch">Fetch</button>
       </div>
     </div>
     <hr>
     <ul class="list-group">
-      <li class="list-group-item" v-for="employee in employees" v-bind:key="employee.id">{{ employee.username }}</li>
+      <li class="list-group-item" v-for="employee in employees"  v-bind:key="employee.id">{{ employee.username }}</li>
     </ul>
   </div>
 </template>
@@ -30,13 +38,14 @@
           username: '',
           email: ''
         },
+        resource: [],
         employees: [],
-        userResource: []
+        type: 'users'
       }
     },
     methods: {
       submit() {
-        this.employeeResource.save({}, this.user)
+        this.resource.save({type: this.type}, this.user)
           .then(response => {
             console.log(response);
           }, error => {
@@ -44,7 +53,7 @@
           });
       },
       submitAlt() {
-        this.userResource.saveAlt(this.user)
+        this.resource.saveAlt({type: this.type},  this.user)
           .then(response => {
             console.log(response);
           }, error => {
@@ -52,7 +61,7 @@
           });
       },
       fetch() {
-        this.employeeResource.get()
+        this.resource.get({type: this.type})
           .then(response => {
             this.employees = response.body;
           }, error => {
@@ -62,14 +71,12 @@
     },
     created() {
       const customActions = {
-        saveAlt: {method: 'POST', url: 'users'}
+        saveAlt: {method: 'POST'}
       }
-      this.userResource = this.$resource('users', {}, customActions);
-      this.employeeResource = this.$resource('employees', {});
+      this.resource = this.$resource('{type}', {}, customActions);
     }
   }
 </script>
-
 
 <style>
 </style>
