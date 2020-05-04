@@ -1,19 +1,30 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                <h1>Routing</h1>
-              <router-view name="header-top"></router-view>
-              <router-view></router-view>
-              <router-view name="header-bottom"></router-view>
-            </div>
-        </div>
+      <app-counter @updated="update($event)"></app-counter>
+      <app-result :counter="counter"></app-result>
     </div>
 </template>
 
 <script>
-    export default {
+  import Counter from './components/Counter';
+  import Result from './components/Result';
+
+  export default {
+    data(){
+      return {
+        counter: 0
+      }
+    },
+    methods: {
+      update(event) {
+        this.counter += event
+      }
+    },
+    components: {
+      appCounter: Counter,
+      appResult: Result
     }
+  }
 </script>
 
 <style>
