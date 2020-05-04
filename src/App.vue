@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-      <app-counter @updated="update($event)"></app-counter>
-      <app-result :counter="counter"></app-result>
+      <app-counter></app-counter>
+      <app-result></app-result>
     </div>
 </template>
 
@@ -10,11 +10,6 @@
   import Result from './components/Result';
 
   export default {
-    data(){
-      return {
-        counter: 0
-      }
-    },
     methods: {
       update(event) {
         this.counter += event
