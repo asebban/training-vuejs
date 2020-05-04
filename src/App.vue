@@ -10,11 +10,7 @@
   import Result from './components/Result';
 
   export default {
-    methods: {
-      update(event) {
-        this.counter += event
-      }
-    },
+
     components: {
       appCounter: Counter,
       appResult: Result
